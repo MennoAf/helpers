@@ -7,7 +7,7 @@ def wincheck(scorecard,team):
             winner.append("While Home one " + scorecard["Date"][rows] + " against " + scorecard["Away"][rows])
         elif (scorecard["Away"][rows] == team) & (scorecard["Winner"][rows] == "A"):
             winner.append("While Away on " + scorecard["Date"][rows] + " against " + scorecard["Home"][rows])
-    print(f"Coffee Won a Total of {len(winner)} games")
+    print(f"{team} Won a Total of {len(winner)} games")
     for date in winner:
         print(date)
         
