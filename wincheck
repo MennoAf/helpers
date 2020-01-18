@@ -1,0 +1,18 @@
+import pandas as pd
+
+def wincheck(scorecard,team):
+    winner = []
+    for rows in scorecard.index:
+        if (scorecard["Home"][rows] == team) & (scorecard["Winner"][rows] == "H"):
+            winner.append("While Home one " + scorecard["Date"][rows] + " against " + scorecard["Away"][rows])
+        elif (scorecard["Away"][rows] == team) & (scorecard["Winner"][rows] == "A"):
+            winner.append("While Away on " + scorecard["Date"][rows] + " against " + scorecard["Home"][rows])
+    print(f"Coffee Won a Total of {len(winner)} games")
+    for date in winner:
+        print(date)
+        
+       
+if __name__ == '__main__':
+    team_data = [["Game1","Coffee","Tea","A"],["Game2","Tea","Coffee","A"],["Game3","Coffee","Tea","H"],["Game4","Tea","Coffee","H"],["Game5","Coffee","Hot Chocolate","H"],["Game6","Hot Chocolate","Coffee","A"]]
+    scorecard = pd.DataFrame(team_data, columns = ["Date","Home","Away","Winner"])
+    wincheck(scorecard,"Coffee")
